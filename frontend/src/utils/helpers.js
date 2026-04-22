@@ -50,7 +50,7 @@ export const HEADER_COLORS = [
   "var(--terra-2)",
 ];
 
-// ── Date formatting ────────────────────────────────────────────
+
 export function fmtDate(dateStr) {
   if (!dateStr) return "—";
   try {
@@ -78,14 +78,14 @@ export function daysSince(dateStr) {
   }
 }
 
-// ── Avatar initials ────────────────────────────────────────────
+
 export function getInitials(name = "") {
   const parts = name.trim().split(/\s+/);
   if (parts.length >= 2) return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
   return name.slice(0, 2).toUpperCase();
 }
 
-// ── Error extraction from axios errors ────────────────────────
+
 export function extractError(err) {
   return (
     err?.response?.data?.error ||
@@ -94,8 +94,6 @@ export function extractError(err) {
     "Something went wrong"
   );
 }
-
-// ── Class join helper ──────────────────────────────────────────
 export function cx(...classes) {
   return classes.filter(Boolean).join(" ");
 }
