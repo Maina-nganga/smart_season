@@ -25,7 +25,7 @@ export default function Sidebar() {
       zIndex: 100,
       overflowY: "auto",
     }}>
-      {/* Logo */}
+     
       <div style={{ padding: "28px 22px 22px", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 11 }}>
           <div style={{
@@ -47,7 +47,7 @@ export default function Sidebar() {
         </div>
       </div>
 
-      {/* Navigation */}
+    
       <nav style={{ padding: "16px 0", flex: 1 }}>
         <p style={{
           fontSize: 10, letterSpacing: "1.5px",
@@ -95,7 +95,7 @@ export default function Sidebar() {
         ))}
       </nav>
 
-      {/* User footer */}
+    
       <div style={{ padding: 18, borderTop: "1px solid rgba(255,255,255,0.08)" }}>
         <div style={{
           display: "flex", alignItems: "center", gap: 10,

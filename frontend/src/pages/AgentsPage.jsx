@@ -9,7 +9,7 @@ import {
 import { extractError } from "@/utils/helpers";
 import toast from "react-hot-toast";
 
-/* ── Agent card ─────────────────────────────────────────── */
+
 function AgentCard({ agent, fields, onEdit, onDeactivate }) {
   const [expanded, setExpanded] = useState(false);
   const agentFields = fields.filter((f) => f.agent_id === agent.id);
@@ -19,7 +19,7 @@ function AgentCard({ agent, fields, onEdit, onDeactivate }) {
 
   return (
     <Card style={{ overflow: "hidden" }} padding={0}>
-      {/* Header */}
+     
       <div style={{ padding: "20px 22px 16px" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 16 }}>
           <Avatar name={agent.name} role="agent" size={48} />
@@ -36,7 +36,6 @@ function AgentCard({ agent, fields, onEdit, onDeactivate }) {
           </div>
         </div>
 
-        {/* Mini stats */}
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 8, marginBottom: 14 }}>
           {[
             { label: "Active",    count: active,    bg: "var(--success-bg)", color: "var(--success-text)" },
@@ -55,7 +54,7 @@ function AgentCard({ agent, fields, onEdit, onDeactivate }) {
         </p>
       </div>
 
-      {/* Field list */}
+  
       {agentFields.length > 0 && (
         <div style={{ borderTop: "1px solid var(--mist)" }}>
           {(expanded ? agentFields : agentFields.slice(0, 3)).map((f) => (
@@ -99,7 +98,7 @@ function AgentCard({ agent, fields, onEdit, onDeactivate }) {
   );
 }
 
-/* ── Agent form modal ───────────────────────────────────── */
+
 function AgentFormModal({ agent, onSave, onClose }) {
   const [form, setForm] = useState({
     name: agent?.name || "",
@@ -157,7 +156,7 @@ function AgentFormModal({ agent, onSave, onClose }) {
   );
 }
 
-/* ── Main page ──────────────────────────────────────────── */
+
 export default function AgentsPage() {
   const [agents, setAgents]     = useState([]);
   const [fields, setFields]     = useState([]);

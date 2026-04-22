@@ -33,7 +33,7 @@ export default function FieldsPage() {
 
   useEffect(() => { fetchFields(); }, [fetchFields]);
 
-  // Client-side filter
+  
   const filtered = fields.filter((f) => {
     const matchSearch =
       !search ||
@@ -71,7 +71,7 @@ export default function FieldsPage() {
   };
 
   const handleFieldUpdated = useCallback((updated) => {
-    // Refresh list
+  
     fetchFields();
   }, [fetchFields]);
 
@@ -99,14 +99,13 @@ export default function FieldsPage() {
         }
       />
 
-      {/* Toolbar */}
       <div style={{ display: "flex", gap: 12, marginBottom: 22, flexWrap: "wrap", alignItems: "flex-start" }}>
         <SearchBar value={search} onChange={setSearch} placeholder="Search fields, crops, agents…" />
         <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
           <FilterTabs options={STATUS_FILTERS} value={statusFilter} onChange={setStatus} />
           <FilterTabs options={STAGE_FILTERS}  value={stageFilter}  onChange={setStage} />
         </div>
-        {/* View toggle */}
+  
         <div style={{ display: "flex", gap: 2, background: "var(--mist)", borderRadius: "var(--r-sm)", padding: 3, flexShrink: 0 }}>
           {[["grid", <LayoutGrid size={15} />], ["list", <List size={15} />]].map(([mode, icon]) => (
             <button
@@ -128,7 +127,7 @@ export default function FieldsPage() {
         </div>
       </div>
 
-      {/* Content */}
+   
       {loading ? (
         <div style={{ display: "flex", justifyContent: "center", padding: 60 }}>
           <Spinner size={36} />
@@ -166,7 +165,7 @@ export default function FieldsPage() {
         />
       )}
 
-      {/* Field detail */}
+   
       {selectedField && (
         <FieldDetailModal
           field={selectedField}
@@ -178,7 +177,7 @@ export default function FieldsPage() {
         />
       )}
 
-      {/* Create / Edit modal */}
+  
       {showCreate && (
         <FieldFormModal onSave={handleCreate} onClose={() => setShowCreate(false)} />
       )}
@@ -186,7 +185,7 @@ export default function FieldsPage() {
         <FieldFormModal field={editField} onSave={handleEdit} onClose={() => setEditField(null)} />
       )}
 
-      {/* Delete confirm */}
+
       {deleteTarget && (
         <ConfirmDialog
           title="Delete Field"
@@ -199,7 +198,7 @@ export default function FieldsPage() {
   );
 }
 
-/* ── List view ─────────────────────────────────────────── */
+
 function FieldListView({ fields, isAdmin, onView, onEdit, onDelete }) {
   return (
     <Card padding={0}>

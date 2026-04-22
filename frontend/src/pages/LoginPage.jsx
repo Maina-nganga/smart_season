@@ -51,7 +51,7 @@ export default function LoginPage() {
       position: "relative",
       overflow: "hidden",
     }}>
-      {/* Decorative blobs */}
+     
       <div style={{ position: "absolute", inset: 0, pointerEvents: "none" }}>
         <div style={{ position: "absolute", top: "-10%", left: "20%", width: 400, height: 400, borderRadius: "50%", background: "radial-gradient(circle, rgba(139,158,122,0.12) 0%, transparent 70%)" }} />
         <div style={{ position: "absolute", bottom: "5%", right: "15%", width: 300, height: 300, borderRadius: "50%", background: "radial-gradient(circle, rgba(196,112,74,0.1) 0%, transparent 70%)" }} />
@@ -68,7 +68,7 @@ export default function LoginPage() {
           boxShadow: "0 24px 72px rgba(0,0,0,0.45)",
         }}
       >
-        {/* Logo */}
+    
         <div style={{ textAlign: "center", marginBottom: 36 }}>
           <div style={{
             width: 58, height: 58,
@@ -116,7 +116,7 @@ export default function LoginPage() {
           </Button>
         </form>
 
-        {/* Demo logins */}
+     
         <div style={{
           marginTop: 24,
           background: "var(--cream-2)",

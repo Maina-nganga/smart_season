@@ -35,7 +35,7 @@ export default function TopBar() {
       </div>
 
       <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-        {/* Season tag */}
+      
         <div style={{
           padding: "5px 12px", borderRadius: 20,
           background: "var(--success-bg)",
@@ -47,7 +47,7 @@ export default function TopBar() {
           Season 2024/25
         </div>
 
-        {/* Avatar */}
+      
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
           <Avatar name={user?.name} role={user?.role} size={34} />
           <div style={{ lineHeight: 1.3 }}>

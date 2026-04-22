@@ -31,26 +31,25 @@ export default function App() {
       />
 
       <Routes>
-        {/* Guest-only routes */}
+        
         <Route element={<GuestRoute />}>
           <Route path="/login" element={<LoginPage />} />
         </Route>
 
-        {/* Protected app routes */}
         <Route element={<ProtectedRoute />}>
           <Route element={<AppLayout />}>
             <Route index element={<Navigate to="/dashboard" replace />} />
             <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/fields"    element={<FieldsPage />} />
 
-            {/* Admin-only */}
+     
             <Route element={<AdminRoute />}>
               <Route path="/agents" element={<AgentsPage />} />
             </Route>
           </Route>
         </Route>
 
-        {/* Catch-all */}
+   
         <Route path="*" element={<Navigate to="/dashboard" replace />} />
       </Routes>
     </>

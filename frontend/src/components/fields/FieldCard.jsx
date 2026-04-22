@@ -26,11 +26,11 @@ export default function FieldCard({ field, onClick }) {
         e.currentTarget.style.transform = "translateY(0)";
       }}
     >
-      {/* Color accent bar */}
+     
       <div style={{ height: 6, background: accentColor }} />
 
       <div style={{ padding: "16px 18px 18px" }}>
-        {/* Header */}
+    
         <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", marginBottom: 4, gap: 8 }}>
           <h3 style={{
             fontSize: 15, fontFamily: "'Playfair Display', serif",
@@ -47,7 +47,7 @@ export default function FieldCard({ field, onClick }) {
           {field.crop_type} · Planted {fmtDate(field.planting_date)}
         </p>
 
-        {/* Stage badge + notes count */}
+    
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 12 }}>
           <StageBadge stage={field.stage} />
           <span style={{ display: "flex", alignItems: "center", gap: 4, fontSize: 12, color: "var(--text-muted)" }}>
@@ -56,10 +56,10 @@ export default function FieldCard({ field, onClick }) {
           </span>
         </div>
 
-        {/* Progress bar */}
+     
         <ProgressBar value={field.progress} stage={field.stage} height={5} />
 
-        {/* Footer */}
+     
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: 10 }}>
           <span style={{ fontSize: 11, color: "var(--text-muted)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", flex: 1 }}>
             {field.agent?.name || "Unassigned"}

@@ -27,7 +27,7 @@ export default function FieldDetailModal({ field: initialField, onClose, onField
       const { data } = await fieldService.get(field.id);
       setField(data.data);
       onFieldUpdated?.(data.data);
-    } catch { /* ignore */ }
+    } catch {error}
   };
 
   const handleAddNote = async () => {
@@ -84,10 +84,10 @@ export default function FieldDetailModal({ field: initialField, onClose, onField
         </div>
       }
     >
-      {/* Color bar */}
+      
       <div style={{ height: 5, background: accentColor, borderRadius: 4, marginBottom: 18, marginTop: -4 }} />
 
-      {/* Badges row */}
+      
       <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 18 }}>
         <StatusBadge status={field.status} />
         <StageBadge stage={field.stage} />
@@ -101,7 +101,7 @@ export default function FieldDetailModal({ field: initialField, onClose, onField
         )}
       </div>
 
-      {/* Info grid */}
+     
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, marginBottom: 18 }}>
         {[
           ["Planted", fmtDate(field.planting_date)],
@@ -117,14 +117,14 @@ export default function FieldDetailModal({ field: initialField, onClose, onField
         ))}
       </div>
 
-      {/* Progress */}
+    
       <div style={{ marginBottom: 20 }}>
         <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 6 }}>
           <span style={{ fontSize: 12, color: "var(--text-muted)" }}>Season Progress</span>
           <span style={{ fontSize: 12, fontWeight: 600 }}>{field.progress}%</span>
         </div>
         <ProgressBar value={field.progress} stage={field.stage} height={8} />
-        {/* Stage milestones */}
+    
         <div style={{ display: "flex", justifyContent: "space-between", marginTop: 8 }}>
           {STAGES.map((s) => {
             const done = STAGES.indexOf(s) <= STAGES.indexOf(field.stage);
@@ -138,7 +138,6 @@ export default function FieldDetailModal({ field: initialField, onClose, onField
         </div>
       </div>
 
-      {/* Stage update (agents and admins) */}
       {canEdit && (
         <div style={{ marginBottom: 20, background: "var(--cream)", borderRadius: "var(--r-sm)", padding: 14, border: "1px solid var(--mist)" }}>
           <div style={{ fontSize: 11, fontWeight: 600, color: "var(--text-secondary)", letterSpacing: "0.8px", textTransform: "uppercase", marginBottom: 10 }}>
@@ -166,7 +165,7 @@ export default function FieldDetailModal({ field: initialField, onClose, onField
 
       <Divider />
 
-      {/* Notes / Observations */}
+  
       <div style={{ marginBottom: 16 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14 }}>
           <FileText size={15} color="var(--text-muted)" />
@@ -178,7 +177,7 @@ export default function FieldDetailModal({ field: initialField, onClose, onField
           </h4>
         </div>
 
-        {/* Timeline */}
+      
         {field.notes?.length === 0 && (
           <p style={{ fontSize: 13, color: "var(--text-muted)", marginBottom: 14 }}>No observations recorded yet.</p>
         )}
@@ -222,7 +221,7 @@ export default function FieldDetailModal({ field: initialField, onClose, onField
         </div>
       </div>
 
-      {/* Add note form */}
+  
       {canEdit && (
         <div>
           {noteError && <Alert type="error">{noteError}</Alert>}

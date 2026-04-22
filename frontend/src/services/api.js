@@ -15,7 +15,7 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
-// Auto-refresh on 401
+
 let isRefreshing = false;
 let failedQueue = [];
 
@@ -81,7 +81,7 @@ api.interceptors.response.use(
 
 export default api;
 
-// ── Auth ────────────────────────────────────────────────
+
 export const authService = {
   login: (email, password) => api.post("/auth/login", { email, password }),
   logout: () => api.post("/auth/logout"),
@@ -95,7 +95,7 @@ export const authService = {
   },
 };
 
-// ── Fields ──────────────────────────────────────────────
+
 export const fieldService = {
   list: (params = {}) => api.get("/fields", { params }),
   get: (id) => api.get(`/fields/${id}`),
@@ -105,7 +105,7 @@ export const fieldService = {
   delete: (id) => api.delete(`/fields/${id}`),
 };
 
-// ── Notes ───────────────────────────────────────────────
+
 export const noteService = {
   list: (fieldId) => api.get(`/notes/fields/${fieldId}/notes`),
   add: (fieldId, note_text) =>
@@ -113,7 +113,7 @@ export const noteService = {
   delete: (noteId) => api.delete(`/notes/notes/${noteId}`),
 };
 
-// ── Users ───────────────────────────────────────────────
+
 export const userService = {
   list: (params = {}) => api.get("/users", { params }),
   agents: () => api.get("/users/agents"),
@@ -123,7 +123,7 @@ export const userService = {
   delete: (id) => api.delete(`/users/${id}`),
 };
 
-// ── Dashboard ────────────────────────────────────────────
+
 export const dashboardService = {
   admin: () => api.get("/dashboard/admin"),
   agent: () => api.get("/dashboard/agent"),

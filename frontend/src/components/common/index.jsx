@@ -2,7 +2,7 @@ import { forwardRef, useState } from "react";
 import { X, Eye, EyeOff } from "lucide-react";
 import { STATUS_CONFIG, STAGE_CONFIG, cx } from "@/utils/helpers";
 
-/* ── Button ─────────────────────────────────────────────── */
+
 const VARIANTS = {
   primary:   { bg: "var(--sage-2)",      color: "#fff",                border: "var(--sage-2)",   hover: "var(--sage-3)" },
   secondary: { bg: "var(--white)",       color: "var(--text-primary)", border: "var(--mist)",     hover: "var(--cream-2)" },
@@ -49,7 +49,7 @@ export function Button({
   );
 }
 
-/* ── Spinner ────────────────────────────────────────────── */
+
 export function Spinner({ size = 20, color = "var(--sage-2)" }) {
   return (
     <div
@@ -65,7 +65,7 @@ export function Spinner({ size = 20, color = "var(--sage-2)" }) {
   );
 }
 
-/* ── Badge ──────────────────────────────────────────────── */
+
 export function StatusBadge({ status }) {
   const cfg = STATUS_CONFIG[status] || STATUS_CONFIG.Active;
   return (
@@ -111,7 +111,7 @@ export function RoleBadge({ role }) {
   );
 }
 
-/* ── Card ───────────────────────────────────────────────── */
+
 export function Card({ children, style, className, onClick, padding = "24px" }) {
   return (
     <div
@@ -135,7 +135,7 @@ export function Card({ children, style, className, onClick, padding = "24px" }) 
   );
 }
 
-/* ── Modal ──────────────────────────────────────────────── */
+
 export function Modal({ title, onClose, children, footer, maxWidth = 540 }) {
   return (
     <div
@@ -157,7 +157,7 @@ export function Modal({ title, onClose, children, footer, maxWidth = 540 }) {
           overflow: "hidden",
         }}
       >
-        {/* Header */}
+    
         <div style={{
           padding: "22px 28px 18px",
           borderBottom: "1px solid var(--mist)",
@@ -178,9 +178,9 @@ export function Modal({ title, onClose, children, footer, maxWidth = 540 }) {
             <X size={16} />
           </button>
         </div>
-        {/* Body */}
+       
         <div style={{ padding: "22px 28px", overflowY: "auto", flex: 1 }}>{children}</div>
-        {/* Footer */}
+      
         {footer && (
           <div style={{
             padding: "16px 28px",
@@ -196,7 +196,7 @@ export function Modal({ title, onClose, children, footer, maxWidth = 540 }) {
   );
 }
 
-/* ── Form controls ──────────────────────────────────────── */
+
 export const FormInput = forwardRef(function FormInput(
   { label, error, type = "text", hint, required, ...props }, ref
 ) {
@@ -298,7 +298,7 @@ export function FormTextarea({ label, error, required, ...props }) {
   );
 }
 
-/* ── Alert ──────────────────────────────────────────────── */
+
 export function Alert({ type = "error", children }) {
   const styles = {
     error:   { bg: "var(--danger-bg)",  color: "var(--danger-text)",  border: "var(--danger-border)" },
@@ -319,7 +319,7 @@ export function Alert({ type = "error", children }) {
   );
 }
 
-/* ── Empty state ────────────────────────────────────────── */
+
 export function EmptyState({ icon, title, subtitle, action }) {
   return (
     <div style={{ textAlign: "center", padding: "60px 20px", color: "var(--text-muted)" }}>
@@ -331,7 +331,7 @@ export function EmptyState({ icon, title, subtitle, action }) {
   );
 }
 
-/* ── Avatar ─────────────────────────────────────────────── */
+
 export function Avatar({ name = "", role = "agent", size = 36 }) {
   const initials = name
     .split(" ")
@@ -352,7 +352,7 @@ export function Avatar({ name = "", role = "agent", size = 36 }) {
   );
 }
 
-/* ── Progress bar ───────────────────────────────────────── */
+
 export function ProgressBar({ value = 0, stage = "Growing", height = 6 }) {
   const colors = { Planted: "var(--earth)", Growing: "var(--sage-2)", Ready: "var(--amber-2)", Harvested: "#378ADD" };
   return (
@@ -367,7 +367,7 @@ export function ProgressBar({ value = 0, stage = "Growing", height = 6 }) {
   );
 }
 
-/* ── Page header ────────────────────────────────────────── */
+
 export function PageHeader({ eyebrow, title, subtitle, action }) {
   return (
     <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 16, marginBottom: 28 }}>
@@ -385,12 +385,11 @@ export function PageHeader({ eyebrow, title, subtitle, action }) {
   );
 }
 
-/* ── Divider ────────────────────────────────────────────── */
+
 export function Divider({ style }) {
   return <div style={{ height: 1, background: "var(--mist)", margin: "20px 0", ...style }} />;
 }
 
-/* ── Search bar ─────────────────────────────────────────── */
 export function SearchBar({ value, onChange, placeholder = "Search…" }) {
   return (
     <div style={{ position: "relative", flex: 1 }}>
@@ -416,7 +415,7 @@ export function SearchBar({ value, onChange, placeholder = "Search…" }) {
   );
 }
 
-/* ── Filter tabs ────────────────────────────────────────── */
+
 export function FilterTabs({ options, value, onChange }) {
   return (
     <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
@@ -444,7 +443,7 @@ export function FilterTabs({ options, value, onChange }) {
   );
 }
 
-/* ── Confirm dialog ─────────────────────────────────────── */
+
 export function ConfirmDialog({ title, message, onConfirm, onCancel, danger = true }) {
   return (
     <Modal title={title} onClose={onCancel} maxWidth={400}
