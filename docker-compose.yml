@@ -1,0 +1,60 @@
+version: "3.9"
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: smartseason_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: smartseason
+      MYSQL_USER: smartseason
+      MYSQL_PASSWORD: smartseason123
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 10s
+      retries: 10
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: smartseason_backend
+    restart: always
+    environment:
+      FLASK_ENV: production
+      SECRET_KEY: change-me-in-production-use-long-random-string
+      JWT_SECRET_KEY: change-me-jwt-key-in-production
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_NAME: smartseason
+      DB_USER: smartseason
+      DB_PASSWORD: smartseason123
+      CORS_ORIGINS: http://localhost:5173,http://localhost:3000,http://localhost
+    ports:
+      - "5000:5000"
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./backend:/app
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: smartseason_frontend
+    restart: always
+    environment:
+      VITE_API_URL: http://localhost:5000/api
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+volumes:
+  db_data:
