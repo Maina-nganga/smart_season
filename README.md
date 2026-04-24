@@ -261,32 +261,4 @@ Active     →  Everything else
 
 ---
 
-## Design Decisions
-
-### Application Factory (Flask)
-
-`create_app()` is used throughout to support multiple configuration profiles (development, production, testing) and clean test isolation. Each domain area is encapsulated in its own Blueprint.
-
-### JWT Authentication with Refresh Tokens
-
-- **Access tokens** are short-lived (24h) and sent with every API request via the `Authorization` header.
-- **Refresh tokens** are long-lived (30 days) and stored in `localStorage`. When an access token expires, the Axios interceptor silently fetches a new one — the user never sees a `401`.
-
-### Role-Based Access Control
-
-Two roles exist: `admin` and `agent`. Access is enforced at the route level using custom Python decorators (`@admin_required`, `@field_access_required`). Field agents can only view and update their assigned fields; admins have unrestricted access.
-
-### Soft Deletes
-
-Fields and users are deactivated (`is_active = False`) rather than deleted. This preserves referential integrity and maintains an audit trail without requiring complex recovery logic.
-
-### Frontend State Management
-
-Auth state lives in React Context; field data is managed through a `useFields` custom hook. No global state library (Redux, Zustand) is used — the app's scope doesn't warrant the overhead.
-
-### Design System
-
-A CSS custom property token system gives the UI a consistent earthy, agricultural aesthetic. No CSS framework is used — all styles are component-scoped with a single global token file.
-
----
 
