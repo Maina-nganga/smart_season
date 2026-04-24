@@ -27,10 +27,10 @@ Built with **Flask**
 
 | Role        | Email                     | Password    |
 |-------------|---------------------------|-------------|
-| Admin       | admin@smartseason.com     | `admin123`  |
-| Field Agent | james@smartseason.com     | `agent123`  |
-| Field Agent | amina@smartseason.com     | `agent123`  |
-| Field Agent | peter@smartseason.com     | `agent123`  |
+| Admin       | admin@smartseason.com     | `password123`  |
+| Field Agent | james@smartseason.com     | `password123`  |
+| Field Agent | amina@smartseason.com     | `password123`  |
+| Field Agent | peter@smartseason.com     | `password123`  |
 
 ---
 
