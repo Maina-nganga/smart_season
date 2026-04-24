@@ -34,7 +34,7 @@ export default function Sidebar() {
             display: "flex", alignItems: "center", justifyContent: "center",
             flexShrink: 0,
           }}>
-            <Sprout size={20} color="#fff" />
+            
           </div>
           <div>
             <div style={{ fontSize: 15, fontFamily: "'Playfair Display', serif", fontWeight: 600, color: "var(--cream)" }}>

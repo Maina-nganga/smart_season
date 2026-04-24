@@ -1,16 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Sprout } from "lucide-react";
+
 import { useAuth } from "@/hooks/useAuth";
 import { Button, FormInput, Alert } from "@/components/common";
 import { extractError } from "@/utils/helpers";
 
-const DEMO_USERS = [
-  { label: "Sarah Kimani", role: "Admin",       email: "admin@smartseason.com", password: "admin123" },
-  { label: "James Ochieng", role: "Field Agent", email: "james@smartseason.com", password: "agent123" },
-  { label: "Amina Wanjiru", role: "Field Agent", email: "amina@smartseason.com", password: "agent123" },
-];
-
+ 
 export default function LoginPage() {
   const { login } = useAuth();
   const navigate = useNavigate();
@@ -70,15 +65,6 @@ export default function LoginPage() {
       >
     
         <div style={{ textAlign: "center", marginBottom: 36 }}>
-          <div style={{
-            width: 58, height: 58,
-            background: "var(--sage-2)",
-            borderRadius: 17,
-            display: "flex", alignItems: "center", justifyContent: "center",
-            margin: "0 auto 16px",
-          }}>
-            <Sprout size={28} color="#fff" />
-          </div>
           <h1 style={{ fontSize: 26, color: "var(--earth-2)" }}>SmartSeason</h1>
           <p style={{ fontSize: 13, color: "var(--text-muted)", marginTop: 5 }}>
             Field Monitoring System
@@ -125,26 +111,7 @@ export default function LoginPage() {
         }}>
           <p style={{ fontSize: 11, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.9px", color: "var(--text-muted)", marginBottom: 10 }}>
             Demo Accounts
-          </p>
-          {DEMO_USERS.map((u) => (
-            <button
-              key={u.email}
-              onClick={() => quickLogin(u)}
-              style={{
-                display: "block", width: "100%", textAlign: "left",
-                background: "var(--white)", border: "1px solid var(--mist)",
-                borderRadius: "var(--r-sm)", padding: "8px 12px",
-                fontSize: 13, color: "var(--text-secondary)",
-                marginBottom: 7, cursor: "pointer", transition: "all 0.15s",
-              }}
-              onMouseEnter={(e) => { e.currentTarget.style.borderColor = "var(--sage-2)"; e.currentTarget.style.background = "var(--cream)"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--mist)"; e.currentTarget.style.background = "var(--white)"; }}
-            >
-              <strong style={{ color: "var(--text-primary)" }}>{u.label}</strong>
-              <span style={{ color: "var(--text-muted)", marginLeft: 6 }}>· {u.role}</span>
-              <span style={{ float: "right", color: "var(--text-muted)", fontSize: 11, marginTop: 1 }}>{u.email}</span>
-            </button>
-          ))}
+          </p>         
         </div>
       </div>
     </div>
