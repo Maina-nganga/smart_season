@@ -17,7 +17,7 @@ from app.models.user import User
 from app.models.field import Field
 from app.models.note import FieldNote
 
-app = create_app(os.environ.get("FLASK_ENV", "development"))
+app = create_app(os.environ.get("FLASK_ENV", "production"))
 
 with app.app_context():
     print("==> Creating all tables...")
