@@ -108,10 +108,7 @@ export default function LoginPage() {
           background: "var(--cream-2)",
           borderRadius: "var(--r-sm)",
           padding: "14px 16px",
-        }}>
-          <p style={{ fontSize: 11, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.9px", color: "var(--text-muted)", marginBottom: 10 }}>
-            Demo Accounts
-          </p>         
+        }}>       
         </div>
       </div>
     </div>
