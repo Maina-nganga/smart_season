@@ -12,7 +12,7 @@ class FieldNote(db.Model):
     author_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     note_text = db.Column(db.Text, nullable=False)
     stage_at_time = db.Column(
-        db.Enum("Planted", "Growing", "Ready", "Harvested"), nullable=True
+        db.Enum("Planted", "Growing", "Ready", "Harvested", name="note_stage"), nullable=True
     )
     created_at = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc))
     updated_at = db.Column(

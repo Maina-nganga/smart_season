@@ -21,7 +21,7 @@ class Field(db.Model):
     crop_type = db.Column(db.String(80), nullable=False)
     planting_date = db.Column(db.Date, nullable=False)
     stage = db.Column(
-        db.Enum("Planted", "Growing", "Ready", "Harvested"),
+        db.Enum("Planted", "Growing", "Ready", "Harvested", name="field_stage"),
         nullable=False,
         default="Planted",
     )
