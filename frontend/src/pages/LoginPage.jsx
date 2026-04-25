@@ -103,13 +103,7 @@ export default function LoginPage() {
         </form>
 
      
-        <div style={{
-          marginTop: 24,
-          background: "var(--cream-2)",
-          borderRadius: "var(--r-sm)",
-          padding: "14px 16px",
-        }}>       
-        </div>
+  
       </div>
     </div>
   );
