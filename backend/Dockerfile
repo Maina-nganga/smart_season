@@ -2,10 +2,7 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-
 RUN apt-get update && apt-get install -y \
-    default-libmysqlclient-dev \
-    pkg-config \
     gcc \
     && rm -rf /var/lib/apt/lists/*
 
@@ -16,4 +13,4 @@ COPY . .
 
 EXPOSE 5000
 
-CMD ["python", "-m", "gunicorn", "--bind", "0.0.0.0:5000", "--workers", "4", "--timeout", "120", "run:app"]
+CMD python3 db_setup.py --seed && gunicorn run:app --bind 0.0.0.0:$PORT --workers 2 --timeout 120
