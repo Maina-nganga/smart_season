@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import AppLayout from "@/components/layout/AppLayout";
 import { ProtectedRoute, AdminRoute, GuestRoute } from "@/components/auth/ProtectedRoute";
+import HomePage       from "@/pages/HomePage";
 import LoginPage     from "@/pages/LoginPage";
 import DashboardPage from "@/pages/DashboardPage";
 import FieldsPage    from "@/pages/FieldsPage";
@@ -31,14 +32,15 @@ export default function App() {
       />
 
       <Routes>
-        
+
+        <Route path="/" element={<HomePage />} />
+
         <Route element={<GuestRoute />}>
           <Route path="/login" element={<LoginPage />} />
         </Route>
 
         <Route element={<ProtectedRoute />}>
           <Route element={<AppLayout />}>
-            <Route index element={<Navigate to="/dashboard" replace />} />
             <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/fields"    element={<FieldsPage />} />
 
