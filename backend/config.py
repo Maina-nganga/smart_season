@@ -7,21 +7,18 @@ load_dotenv()
 class Config:
     SECRET_KEY = os.environ.get("SECRET_KEY", "dev-secret-key")
     JWT_SECRET_KEY = os.environ.get("JWT_SECRET_KEY", "dev-jwt-secret")
-
     DATABASE_URL = os.environ.get("DATABASE_URL", "")
 
     if DATABASE_URL:
-        if DATABASE_URL.startswith("postgres://"):
-            DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
         SQLALCHEMY_DATABASE_URI = DATABASE_URL
     else:
         DB_HOST = os.environ.get("DB_HOST", "localhost")
-        DB_PORT = os.environ.get("DB_PORT", "5432")
-        DB_NAME = os.environ.get("DB_NAME", "postgres")
-        DB_USER = os.environ.get("DB_USER", "postgres")
+        DB_PORT = os.environ.get("DB_PORT", "3306")
+        DB_NAME = os.environ.get("DB_NAME", "smartseason")
+        DB_USER = os.environ.get("DB_USER", "root")
         DB_PASSWORD = os.environ.get("DB_PASSWORD", "")
         SQLALCHEMY_DATABASE_URI = (
-            f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
+            f"mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
         )
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
@@ -49,10 +46,11 @@ class ProductionConfig(Config):
 class TestingConfig(Config):
     TESTING = True
     SQLALCHEMY_DATABASE_URI = "sqlite:///:memory:"
+    SQLALCHEMY_ENGINE_OPTIONS = {}
 
 config = {
     "development": DevelopmentConfig,
     "production": ProductionConfig,
     "testing": TestingConfig,
     "default": ProductionConfig,
-}   
+}
